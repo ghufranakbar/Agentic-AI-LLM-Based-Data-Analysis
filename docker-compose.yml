@@ -1,0 +1,20 @@
+# Docker Compose for DataViz Pro Analytics Platform
+version: '3.8'
+
+services:
+  dataviz-pro:
+    build: .
+    container_name: dataviz-pro-analytics
+    ports:
+      - "8501:8501"
+    environment:
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8501/_stcore/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
