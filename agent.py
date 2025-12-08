@@ -561,7 +561,7 @@ def execute_custom_plot(code, df):
 def run_agent_brain(query, df, api_key):
     """Enhanced agentic AI system with deep context and proper table formatting"""
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.0-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     
     # Build comprehensive context about the data
     numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
