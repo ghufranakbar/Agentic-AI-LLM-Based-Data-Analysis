@@ -709,7 +709,7 @@ Respond professionally. Focus on insights, not just descriptions.
 def generate_insights(df, api_key):
     """Generate comprehensive AI insights about the data"""
     genai.configure(api_key=api_key)
-    model = genai.GenerativeModel('gemini-2.0-flash')
+    model = genai.GenerativeModel('gemini-2.5-flash')
     
     # Build comprehensive context with actual data samples
     numeric_cols = df.select_dtypes(include=['number']).columns.tolist()
